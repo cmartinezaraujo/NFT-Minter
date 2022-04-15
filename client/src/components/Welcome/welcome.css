@@ -1,0 +1,116 @@
+.welcome{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 10%;
+    color: white;
+    padding: 10%;
+}
+
+.welcome-intro{
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    height: 294px;
+    width: 546px;
+}
+
+.welcome-intro-title{
+    font-weight: 800;
+    font-size: 36px;
+    line-height: 43px;
+    background: -webkit-linear-gradient(89.97deg, #AE67FA 1.84%, #F49867 102.67%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.welcome-intro-sub{
+    color: var(--gradient-text);
+}
+
+.welcome-intro-buttons{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+    gap: 10%;
+    margin-top: 5%;
+}
+
+button{
+    width: 200px;
+    height: 56px;
+    border-radius: 90px;
+    background-color: white;
+    font-size: 1em;
+    border: none;
+}
+
+button:hover{
+    background-color: #c6c6c6;
+}
+
+.nft-card{
+    display : flex;
+    flex-direction: column;
+    align-items: center;
+    width: 321px;
+    height: 525px;
+    background-color: rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(255, 255, 255, .5);
+    box-shadow: 0px 20px 40px rgba(0, 0, 0, 0.05);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 35px;
+    overflow: hidden;
+}
+
+.nft-card-image{
+    width: 287px;
+    height: 287px;
+    border-radius: 35px;
+    margin-top: 4.52%;
+    border: .88px solid rgba(255, 255, 255, 1);
+    overflow: hidden;
+}
+
+img{
+    width: 287px;
+    height: 287px;
+    object-fit: fill;
+}
+
+.nft-card-title{
+    font-weight: 500;
+    font-size: 20px;
+    text-align: center;
+    color: #FFFFFF;
+    margin-top: 3%;
+}
+
+.nft-card-owner{
+    font-weight: 500;
+    font-size: 16px;
+    text-align: center;
+    color: #FFFFFF;
+}
+
+.creator{
+    background: -webkit-linear-gradient(89.97deg, #AE67FA 1.84%, #F49867 102.67%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.nft-card-info{
+    font-weight: 400;
+    font-size: 16px;
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+
+section{
+    font-family: var(--font-family);
+}
