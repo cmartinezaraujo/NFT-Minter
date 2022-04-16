@@ -1,6 +1,5 @@
 import React from 'react'
 import './App.css'
-import { Information } from './components/Information/Information'
 import { Nav } from './components/Nav/Nav'
 import { Welcome } from './components/Welcome/Welcome'
 import {Directions} from './components/Directions/Directions'

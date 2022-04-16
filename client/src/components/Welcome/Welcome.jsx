@@ -1,8 +1,16 @@
 import React from 'react'
 import './welcome.css'
- import nft from '../../../assets/ai.png'
+import nftImage from '../../../assets/ai.png'
+import { NFT } from '../NFT/NFT'
 
 export const Welcome = () => {
+
+    const NFT_Example = {
+        title: 'AI',
+        owner: 'AiLab',
+        info: 'This is a  Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi asperiores in suscipit quia, culpa optio, veniam ducimus iusto commodi eveniet ut quaerat harum. that is created by the NFT contract'
+    };
+
   return (
     <section className='welcome'>
         <div className='welcome-intro'>
@@ -15,22 +23,8 @@ export const Welcome = () => {
                 <button className='create'>Create</button>
             </div>
         </div>
-        <div className='nft-card'>
-            <div className='nft-card-image'>
-                <img className='image' src={nft} alt="" />
-            </div>
-            <div className="nft-card-title">
-                AIClub Token
-            </div>
-            <div className="nft-card-owner">
-                Created by <span className='creator'>AiLab</span>
-            </div>
-            <div className="nft-card-info">
-                <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi asperiores in suscipit quia, culpa optio, veniam ducimus iusto commodi eveniet ut quaerat harum.
-                
-                </p>
-            </div>
+        <div>
+            <NFT img={nftImage} title={NFT_Example.title} owner={NFT_Example.owner} info={NFT_Example.info}/>
         </div>
     </section>
   )
