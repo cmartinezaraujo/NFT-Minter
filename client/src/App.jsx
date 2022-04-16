@@ -3,6 +3,7 @@ import './App.css'
 import { Nav } from './components/Nav/Nav'
 import { Welcome } from './components/Welcome/Welcome'
 import {Directions} from './components/Directions/Directions'
+import {Gallery} from './components/Gallery/Gallery'
 
 function App() {
   return (
@@ -13,6 +14,9 @@ function App() {
       </div>
       <div className="blue_bg">
         <Directions />
+      </div>
+      <div className="blue_bg">
+        <Gallery />
       </div>
     </div>
   )

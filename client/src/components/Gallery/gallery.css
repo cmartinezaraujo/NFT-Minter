@@ -1,0 +1,21 @@
+.gallery{
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center ;
+}
+
+.heading{
+    color: white;
+    font-size: 3em;
+}
+
+.nft-tokens{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    gap: 10%;
+}
+
+.nft-card{
+    margin-bottom: 5%;
+}
