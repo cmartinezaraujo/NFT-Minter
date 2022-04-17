@@ -4,6 +4,7 @@ import { Nav } from './components/Nav/Nav'
 import { Welcome } from './components/Welcome/Welcome'
 import {Directions} from './components/Directions/Directions'
 import {Gallery} from './components/Gallery/Gallery'
+import { Create } from './components/Create/Create'
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
       <div className="blue_bg">
         <Gallery />
       </div>
+      <Create />
     </div>
   )
 }
