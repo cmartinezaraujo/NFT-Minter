@@ -1,7 +1,8 @@
-import React from 'react'
+import React, {useContext} from 'react'
 import './welcome.css'
 import nftImage from '../../../assets/ai.png'
 import { NFT } from '../NFT/NFT'
+import { NFTContext } from '../../Context/NFTContext'
 
 export const Welcome = () => {
 
