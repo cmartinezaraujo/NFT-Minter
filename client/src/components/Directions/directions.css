@@ -1,12 +1,3 @@
-section{
-    display: flex;
-    justify-content: center;
-}
-
-.directions{
-    padding: 10%;
-}
-
 .blue-bg{
     background: var(--color-footer);
 
@@ -27,24 +18,51 @@ section{
 
     filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
 }
-  
-.main-heading{
-    font-size: 34px;
-    line-height: 45px;
-    font-weight: 800;
+
+section{
+
 }
 
-.main-heading-sub{
-    font-size: 16px;
-    line-height: 30px;
+.directions{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+    padding: 10%;
+    gap: 10%;
+    /* background: purple; */
+}
+
+.direction-container{
+    /* background: red; */
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    gap: 10%;
+;
+}
+
+.directions-heading{
+    /* background: yellow; */
+}
+
+.direction-text{
+    /* background: green; */
+    color: var(--color-text);
     font-weight: 500;
+    max-width: 400px;
 }
 
 .direction-title{
+    /* background: blue; */
     font-weight: 800;
-    font-size: 14px;
-    line-height: 26px;
     max-width: 180px;
+}
+
+.main-heading{
+   max-width: 400px;
+   font-weight: 800;
+   font-size: 2.5em; 
 }
 
 .direction-title div{
@@ -52,31 +70,18 @@ section{
     height: 3px;
     background: var(--gradient-bar);
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    margin-bottom: 0.25rem;
 }
 
-.direction-text{
-    font-weight: 500;
-    font-size: 14px;
-    line-height: 24px;
-    color: var(--color-text);
-    margin-left: 5rem;
- 
-}
-
-.directions-heading p{
+.main-heading-sub{
     color: var(--color-subtext);
+    font-weight: 500;
+    font-size: 1 em;
+    max-width: 400px;
 }
 
-.direction-container{
-    display: flex;
-    align-items: center;
-    padding: 5%;
-}
 
-.directions-heading{
-    display: flex;
-    flex-flow: column nowrap;
-    justify-content: center;
-    max-width: 550px;
+@media screen and (min-width: 800px) {
+    .directions{
+        flex-flow: row nowrap;
+    }
 }

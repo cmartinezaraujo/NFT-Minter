@@ -6,36 +6,42 @@
     gap: 10%;
     color: white;
     padding: 10%;
+    /* background: red; */
 }
 
 .welcome-intro{
     display: flex;
-    flex-flow: column nowrap;
+    flex-flow: column wrap;
     justify-content: center;
-    height: 294px;
-    width: 546px;
+    /* max-height: 294px;
+    max-width: 546px; */
+    /* background: blue; */
 }
 
 .welcome-intro-title{
     font-weight: 800;
     font-size: 36px;
     line-height: 43px;
+    max-width: 546px;
     background: -webkit-linear-gradient(89.97deg, #AE67FA 1.84%, #F49867 102.67%);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
+    /* background: green; */
 }
 
 .welcome-intro-sub{
     color: var(--gradient-text);
+    /* background: purple; */
 }
 
 .welcome-intro-buttons{
     display: flex;
     flex-flow: row wrap;
-    justify-content: flex-start;
-    gap: 10%;
+    justify-content: space-between;
     margin-top: 5%;
+    margin-bottom: 5%;
+    /* background: aqua; */
 }
 
 button{
@@ -56,3 +62,4 @@ button:hover{
 section{
     font-family: var(--font-family);
 }
+

@@ -3,7 +3,7 @@ import './directions.css'
 
 const featuresData = [
     {
-      title: 'Improving end distrusts instantly',
+      title: 'Easy to use',
       text: 'From they fine john he give of rich he. They age and draw mrs like. Improving end distrusts may instantly was household applauded.',
     },
     {

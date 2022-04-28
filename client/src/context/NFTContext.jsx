@@ -36,7 +36,7 @@ export const NFTProvider = ({children}) => {
             const galleryContract = getEthereumContract();
 
             const nfts = [];
-            //const token = await galleryContract.tokenURI(0);
+            // const token = await galleryContract.tokenURI(0);
             //console.log("The token", token);
 
             for(let i = 0; i < transactionCount; i++) {

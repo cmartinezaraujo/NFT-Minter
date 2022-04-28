@@ -16,7 +16,7 @@ export const Nav = () => {
             NFTG
         </div>
         <ul className='nav-links'>
-            {["Gallery", "About", "Contact"].map((name, index) => (
+            {["Gallery", "Information", "Project"].map((name, index) => (
                 <NavItem key={index} name={name} link="#" />
             ))}
         </ul>

@@ -16,10 +16,10 @@ function App() {
       <div className="blue_bg">
         <Directions />
       </div>
+      <Create />
       <div className="blue_bg">
         <Gallery />
       </div>
-      <Create />
     </div>
   )
 }
