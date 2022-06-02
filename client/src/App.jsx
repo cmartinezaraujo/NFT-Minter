@@ -1,4 +1,4 @@
-import React from 'react'
+import {React} from 'react'
 import './App.css'
 import { Nav } from './components/Nav/Nav'
 import { Welcome } from './components/Welcome/Welcome'
@@ -9,15 +9,15 @@ import { Create } from './components/Create/Create'
 function App() {
   return (
     <div className="App">
-      <div className="gradient__bg">
         <Nav />
         <Welcome />
-      </div>
-      <div className="blue_bg">
+      <div className="blue-bg2">
         <Directions />
       </div>
-      <Create />
-      <div className="blue_bg">
+      <div >
+        <Create />
+      </div>
+      <div className="blue-bg2">
         <Gallery />
       </div>
     </div>
