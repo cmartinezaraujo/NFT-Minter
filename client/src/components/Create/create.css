@@ -1,32 +1,56 @@
 .button-disabled{
-    background-color: rgba(255, 255, 255, 0.5);
+    background-color: rgba(120, 120, 120, 0.5);
     color: rgb(0, 0, 0);
     cursor: not-allowed;
 }
 
 .create{
+    background: rgb(243,243,243);
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-gap: 20px;
+}
+
+.NFT-container{
     display: flex;
+    flex-flow: column nowrap;
     justify-content: center;
-    padding: 10%;
+    align-items: center;
+}
+
+.form-container{
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
 }
 
 .create-form{
     display: flex;
     flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    box-sizing:border-box;
 }
 
 .input-field{
     width: 100%;
     padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    margin-bottom: 5px;
+    margin:10px 0;
+    border: 0;
+    border-bottom:1px solid #eee;
+    box-shadow:0 0 15px 4px rgba(0,0,0,0.06);
+    border-radius:10px;
 }
 
 .input-brows{
-    background-color: white;
+    width: 100%;
     padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    margin-bottom: 5px;
+    margin:10px 0;
+    border: 0;
+    border-bottom:1px solid #eee;
+    box-shadow:0 0 15px 4px rgba(0,0,0,0.06);
+    border-radius:10px;
 }
+
+
