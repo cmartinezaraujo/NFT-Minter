@@ -9,7 +9,7 @@ export const Welcome = () => {
     const NFT_Example = {
         title: 'AI',
         owner: 'AiLab',
-        info: 'This is a  Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi asperiores in suscipit quia, culpa optio, veniam ducimus iusto commodi eveniet ut quaerat harum. that is created by the NFT contract'
+        info: 'This is a  Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi asperiores in suscipit quia, culpa optio, veniam ducimus iusto commodi elit.'
     };
 
   return (
