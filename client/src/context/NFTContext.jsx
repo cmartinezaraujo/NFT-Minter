@@ -18,7 +18,9 @@ const getEthereumContract = () => {
 }
 
 const getDefaultProvider = () => {
-    const provider = new ethers.getDefaultProvider('ropsten');
+    const provider = new ethers.getDefaultProvider('ropsten', {
+        alchemy : REACT_APP_ALCHEMY_API_KEY
+    });
     // const signer = provider.getSigner();
     const cmGalleryContract = new ethers.Contract(contractAddress, contractABI, provider);
 
@@ -39,12 +41,13 @@ export const NFTProvider = ({children}) => {
              ...prevState, [name]: (name === `file`) ? e.target.files[0] : e.target.value
         }));
         // console.log(formData.file);
-        let data = new Blob([formData.file], {type: formData.type});
-        console.log("data:", data);
+        // let data = new Blob([formData.file], {type: formData.type});
+        // console.log("data:", data);
     }
 
     const getAllNfts = async () => {
         try {
+            console.log("getAllNfts was called");
             const galleryContract = getDefaultProvider();
             const nftCount = await galleryContract.totalSupply();
 
@@ -97,7 +100,7 @@ export const NFTProvider = ({children}) => {
             if(accounts.length){
                 setCurrentAccount(accounts[0]);
     
-                getAllNfts();
+                //getAllNfts();
             }else{
                 console.log('No accounts found');
             }
@@ -127,6 +130,7 @@ export const NFTProvider = ({children}) => {
     }
 
     const uploadNftData = async (formData) => {
+        setIsLoading(true);
         let imgCID
         let tokenCID;
 
@@ -180,6 +184,8 @@ export const NFTProvider = ({children}) => {
             return "error";
         });
 
+        setIsLoading(false);
+
         return tokenCID;
     }
 
@@ -226,7 +232,7 @@ export const NFTProvider = ({children}) => {
     }, []);
 
     return(
-        <NFTContext.Provider value={{connectWallet, currentAccount, handleChange, sendTransaction, formData, transactions, transactionCount}}>
+        <NFTContext.Provider value={{connectWallet, currentAccount, handleChange, sendTransaction, formData, transactions, transactionCount, isLoading}}>
             {children}
         </NFTContext.Provider>
     );
