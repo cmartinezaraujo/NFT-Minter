@@ -1,13 +1,14 @@
 import {React, useState, useContext} from 'react'
 import './create.css'
 import { NFTContext } from '../../Context/NFTContext'
-import { NFT } from '../NFT/NFT';
+import { NFT } from '../NFT/NFT'
+import {Loading} from '../Loading/Loading'
 
 export const Create = () => {
 
-  const {connectWallet, currentAccount, handleChange, sendTransaction, formData} = useContext(NFTContext);
+  const {connectWallet, currentAccount, handleChange, sendTransaction, formData, isLoading} = useContext(NFTContext);
   
-  console.log(currentAccount);
+  // console.log(currentAccount);
   
 
     const handleSubmit = (e) => {
@@ -38,6 +39,7 @@ export const Create = () => {
           title={formData.name}/>
       </div>
 
+      {isLoading ? (<Loading />) : (
       <div className='form-container'>
         <form className='create-form'>
             <input className='input-field' placeholder='Address' name="address" type="text" onChange={(e) => handleChange(e, 'address')}/>
@@ -47,7 +49,7 @@ export const Create = () => {
             <input className='input-field' placeholder='Message' name="message" type="text" onChange={(e) => handleChange(e, 'message')}/>
             <input className='input-brows' type="file" name='file' onChange={(e) => handleChange(e, 'file')}/>
 
-            {/* <div className='h-[1px] w-full bg-gray-400 my-2' /> */}
+           
 
             {!currentAccount &&(
             <button type='button' onClick={connectWallet} >
@@ -66,9 +68,9 @@ export const Create = () => {
               type='button' 
               onClick={handleSubmit}
               >Send Now</button>)}
-         </form>
+         </form>         
       </div>
-
+      )}
 
     </section>
   )
