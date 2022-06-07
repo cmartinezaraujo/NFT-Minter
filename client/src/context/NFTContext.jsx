@@ -1,13 +1,14 @@
 import React, {useContext, useState, useEffect} from "react";
 import {ethers} from "ethers";
 import { contractABI, contractAddress } from "../utils/constants";
-import { uploadMetaData } from "../utils/metaData.js";
+// import { uploadMetaData } from "../utils/metaData.js";
 import axios from 'axios';
 
 export const NFTContext = React.createContext();
 
 const {ethereum} = window;
 
+//Function to get the contract instance
 const getEthereumContract = () => {
     const porovider = new ethers.providers.Web3Provider(ethereum);
     const signer = porovider.getSigner();
@@ -16,7 +17,17 @@ const getEthereumContract = () => {
     return cmGalleryContract;
 }
 
+const getDefaultProvider = () => {
+    const provider = new ethers.getDefaultProvider('ropsten');
+    // const signer = provider.getSigner();
+    const cmGalleryContract = new ethers.Contract(contractAddress, contractABI, provider);
+
+    return cmGalleryContract;
+}
+
+
 export const NFTProvider = ({children}) => {
+    const [hasMetaMask, setHasMetaMask] = useState(false);
     const [currentAccount,  setCurrentAccount] = useState('');
     const [formData, setFormData] = useState({address:'', ammount:'', name: '',  owner: '', message: '', file: ''});
     const [isLoading, setIsLoading] = useState(false);
@@ -27,13 +38,21 @@ export const NFTProvider = ({children}) => {
         setFormData((prevState) => ({
              ...prevState, [name]: (name === `file`) ? e.target.files[0] : e.target.value
         }));
-        console.log(formData);
+        // console.log(formData.file);
+        let data = new Blob([formData.file], {type: formData.type});
+        console.log("data:", data);
     }
 
     const getAllNfts = async () => {
         try {
-            if(!ethereum) return alert('Please install MetaMask');
-            const galleryContract = getEthereumContract();
+            const galleryContract = getDefaultProvider();
+            const nftCount = await galleryContract.totalSupply();
+
+            console.log("NFT count:",parseInt(nftCount));
+            setTransactionCount(parseInt(nftCount));
+            window.localStorage.setItem('transactionCount', parseInt(nftCount));
+
+            // console.log("galleryContract:", await galleryContract.tokenURI(1));
 
             const nfts = [];
             // const token = await galleryContract.tokenURI(0);
@@ -43,6 +62,8 @@ export const NFTProvider = ({children}) => {
                 const token = await galleryContract.tokenURI(i);
                 nfts.push(token);
             }
+
+            console.log("The nfts", nfts);
 
             const nftData = [];
             for(let i = 0; i < transactionCount; i++) {
@@ -67,7 +88,8 @@ export const NFTProvider = ({children}) => {
         try {
             if(!ethereum) {
                 setCurrentAccount('');
-                return alert('Please install MetaMask');
+                setHasMetaMask(false);
+                return;
             }
     
             const accounts = await ethereum.request({method: 'eth_accounts'});
@@ -85,29 +107,14 @@ export const NFTProvider = ({children}) => {
         }
 
     }
-
-    const checkIfNftsExist = async () => {
-        try {
-            if(!ethereum) {
-                setCurrentAccount('');
-                return alert('Please install MetaMask');
-            }
-
-            const galleryContract = getEthereumContract();
-            const nftCount = await galleryContract.totalSupply();
-            console.log("NFT count:",parseInt(nftCount));
-            setTransactionCount(parseInt(nftCount));
-            window.localStorage.setItem('transactionCount', parseInt(nftCount));
-        } catch (error) {
-            throw new Error("No ethereum object.");
-        }
-    }
     
 
     const connectWallet = async () => {
         try {
             if(!ethereum) {
-                return alert('Please install MetaMask');
+                setCurrentAccount('');
+                setHasMetaMask(false);
+                return;
             }
 
             const accounts = await ethereum.request({method: 'eth_requestAccounts'});
@@ -120,27 +127,57 @@ export const NFTProvider = ({children}) => {
     }
 
     const uploadNftData = async (formData) => {
+        let imgCID
         let tokenCID;
 
-        let form = new FormData();
-        form.append('file', formData.file);
-        form.append('name', formData.name);
-        form.append('owner', formData.owner);
-        form.append('message', formData.message);
+        // let form = new FormData();
+        // form.append('file', formData.file);
+        // form.append('name', formData.name);
+        // form.append('owner', formData.owner);
+        // form.append('message', formData.message);
         console.log("form data sent:", formData);
+        //https://juiwtoxgm0.execute-api.us-west-2.amazonaws.com//NFT-Data-Upload
+        //https://cma-gallery-api.herokuapp.com/upload/
 
-        await axios.post('https://cma-gallery-api.herokuapp.com/upload/', form, {
+        // let data = new Blob([formData.file], {type: formData.type});
+        // console.log("data:", data);
+        await axios.post('https://juiwtoxgm0.execute-api.us-west-2.amazonaws.com/NFT-Data-Upload', formData.file, {
         headers: {
-            'Content-Type': 'multipart/form-data'
+            'Access-Control-Allow-Origin': '*',
+            'content-type': formData.file.type
           }
         })
         .then(function (response) {
-            tokenCID = response.data;
-            console.log(response);
-            console.log(tokenCID);
+            imgCID = response.data.data;
+            console.log("response", response);
+            console.log("img ID", imgCID);
         })
         .catch(function (error) {
             console.log(error);
+            return "error";
+        });
+
+        const metaData = {
+            name: formData.name,
+            owner: formData.owner,
+            message: formData.message,
+            imageCID: imgCID
+        }
+
+        await axios.post('https://juiwtoxgm0.execute-api.us-west-2.amazonaws.com/NFT-Meta-Upload', metaData, {
+            headers: {
+                'Access-Control-Allow-Origin': '*',
+                'content-type': 'application/json'
+            }
+        })
+        .then(function (response) {
+            tokenCID = response.data.data;
+            console.log("response", response);
+            console.log("token ID", tokenCID);
+        })
+        .catch(function (error) {
+            console.log(error);
+            return "error";
         });
 
         return tokenCID;
@@ -148,7 +185,7 @@ export const NFTProvider = ({children}) => {
 
     const sendTransaction = async () => {
         try{
-            // if(!ethereum) return alert('Please install MetaMask');
+            if(!ethereum) return alert('Please install MetaMask');
 
             // console.log("Blocked");
             // return;
@@ -161,21 +198,21 @@ export const NFTProvider = ({children}) => {
             const tokenCID = await uploadNftData(formData);
             console.log("Meta data", tokenCID);
 
-            // const parsedAmount = ethers.utils.parseEther(ammount);
-            // const transactionHash = await galleryContract.safeMint(currentAccount, tokenCID, {
-            //     from: currentAccount,
-            //     value: parsedAmount._hex
-            // });
+        //     const parsedAmount = ethers.utils.parseEther(ammount);
+        //     const transactionHash = await galleryContract.safeMint(currentAccount, tokenCID, {
+        //         from: currentAccount,
+        //         value: parsedAmount._hex
+        //     });
         //    setIsLoading(true);
-            // console.log(`Loading - ${transactionHash.hash}`);
-            // await transactionHash.wait();
+        //     console.log(`Loading - ${transactionHash.hash}`);
+        //     await transactionHash.wait();
         //    setIsLoading(false);
-            // console.log(`Success - ${transactionHash.hash}`);
+        //     console.log(`Success - ${transactionHash.hash}`);
 
-            // const nftCount = await galleryContract.totalSupply();
-            // console.log("Supply", nftCount)
+        //     const nftCount = await galleryContract.totalSupply();
+        //     console.log("Supply", nftCount)
         //    setTransactionCount(transactionCount.toNumber());
-            window.location.reload();
+        //     window.location.reload();
         } catch(error){
             console.log(error);
             throw new Error("Traansaction failed");
@@ -184,7 +221,8 @@ export const NFTProvider = ({children}) => {
 
     useEffect(() => {
         checkIfWalletIsConnected();
-        checkIfNftsExist();
+        getAllNfts();
+        // checkIfNftsExist();
     }, []);
 
     return(
