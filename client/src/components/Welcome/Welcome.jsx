@@ -1,6 +1,6 @@
 import React, {useContext} from 'react'
 import './welcome.css'
-import nftImage from '../../../assets/ai.png'
+import nftImage from '../../../assets/brain.jpg'
 import { NFT } from '../NFT/NFT'
 import { NFTContext } from '../../Context/NFTContext'
 
@@ -13,20 +13,22 @@ export const Welcome = () => {
     };
 
   return (
-    <section className='welcome'>
+    <section className='welcome app__container'>
+
         <div className='welcome-intro'>
             <div className='welcome-text'>
-                <p className='welcome-intro-title'>Welcome to my non-fungible token (NFT) gallery</p>
-                <p className='welcome-intro-sub'>Explore some unique art work and mint your own NFT</p>
+                <p className='welcome-intro-sub'>Discover and create unique NFT's</p>
             </div>
             <div className='welcome-intro-buttons'>
-                <button className='explore-button'>Explore</button>
-                <button className='create-button'>Create</button>
+                <button className='welcome-btn'>Explore</button>
+                <button className='welcome-btn'>Create</button>
             </div>
         </div>
-        <div class="nft">
+
+        <div class="welcome-nft">
             <NFT img={nftImage} title={NFT_Example.title} owner={NFT_Example.owner} info={NFT_Example.info}/>
         </div>
+
     </section>
   )
 }

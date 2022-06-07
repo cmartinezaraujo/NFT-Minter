@@ -2,69 +2,46 @@
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     grid-gap: 20px;
+    background: url('../../../assets/brain.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: repeat;
 }
 
 .welcome-intro{
     display: flex;
-    flex-flow: column wrap;
+    flex-direction: column;
     justify-content: center;
-    align-items: center;
-    background: blue;
-    /* max-width: 546px; */
-}
-
-.welcome-intro-title{
-    font-weight: 800;
-    font-size: 3em;
-    line-height: 50px;
-    max-width: 546px;
-    background: -webkit-linear-gradient(89.97deg, #AE67FA 1.84%, #F49867 102.67%);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background: green;
-}
-
-.welcome-intro-sub{
-    color: var(--gradient-text);
-    color: black;
-    background: purple;
+    padding: 1.5rem;
+    font-size: 3rem;
+    font-weight: 700;
+    color: white;
 }
 
 .welcome-intro-buttons{
     display: flex;
-    flex-flow: row wrap;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
-    max-width: 546px;
-    width: 100%;
-    /* margin-top: 5%;
-    margin-bottom: 5%; */
-    background: aqua;
+    margin-top: 1rem;
 }
 
-button{
-    width: 200px;
-    height: 56px;
-    border-radius: 90px;
-    background-color:  rgb(21, 21, 21);
-    color: white;
-    font-size: 1em;
+.welcome-btn{
     border: none;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    padding: 1rem;
+    width: 125px;
+    background: rgb(154, 149, 249);
+    font-size: 1rem;
+    font-weight: 600;
+    color: rgb(255, 250, 250);
+    border-radius: 15px;
+
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-button:hover{
-    background-color: #c6c6c6;
-}
-
-.nft{
+.welcome-nft{
     display: flex;
-    align-items: center;
+    flex-direction: column;
     justify-content: center;
-}
-
-
-section{
-    font-family: var(--font-family);
+    align-items: center;
+    padding: 1.5rem;
 }
