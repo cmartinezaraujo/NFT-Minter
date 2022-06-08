@@ -3,29 +3,28 @@ import './directions.css'
 
 const featuresData = [
     {
-      title: 'Easy to use',
-      text: 'From they fine john he give of rich he. They age and draw mrs like. Improving end distrusts may instantly was household applauded.',
+      title: 'Setup Meta Mask',
+      text: 'Download MetaMask and install it on your browser or phone. MetaMask is a browser extension that allows you to interact with the Ethereum blockchain.',
     },
     {
-      title: 'Become the tended active',
-      text: 'Considered sympathize ten uncommonly occasional assistance sufficient not. Letter of on become he tended active enable to.',
+      title: 'Setup your crypto wallet',
+      text: 'Create or connect to an existing Ethereum wallet. And add some Ether to your wallet.',
     },
     {
-      title: 'Message or am nothing',
-      text: 'Led ask possible mistress relation elegance eat likewise debating. By message or am nothing amongst chiefly address.',
+      title: 'Connect your wallet',
+      text: 'Use MetaMask to connect your wallet to the application.',
     },
     {
-      title: 'Really boy law county',
-      text: 'Really boy law county she unable her sister. Feet you off its like like six. Among sex are leave law built now. In built table in an rapid blush..',
+      title: 'Mint your NFT\'s',
+      text: 'You ar now able to mint NFT\'s! Each NFT you mint will be assigned to the address you connected your wallet to.',
     },
   ];
 
 const Direction = ({ title, text }) =>{
     return(
-        <div style={{color:'white'}}className="direction-container">
+        <div className="direction-item">
         <div className='direction-title'>
-          <div />
-          <h1>{title}</h1>
+          <h2>{title}</h2>
         </div>
         <div className="direction-text">
           <p>{text}</p>
@@ -37,13 +36,13 @@ const Direction = ({ title, text }) =>{
 
 export const Directions = () => {
   return (
-      <section className='directions'>
+      <section className='directions app__whitebg'>
         <div className="directions-heading">
-            <h1 className="main-heading gradient_text">The Future is Now and You Just Need to Realize It. Step into Future Today. & Make it Happen.</h1>
-             <p className='main-heading-sub'>Request Early Access to Get Started</p>
+            <h1 className="main-heading gradient_text">Mint your NFT's here and showcase your work in the gallery.</h1>
+             <p className='main-heading-sub'>The process is fast and simple!</p>
         </div>
 
-        <div className="directions-container">
+        <div className="direction-item-container">
             {featuresData.map((item, index) => (
             <Direction title={item.title} text={item.text} key={item.title + index} />
             ))}
