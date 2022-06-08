@@ -3,21 +3,20 @@ import './nft.css'
 
 export const NFT = ({img, title, owner, info}) => {
   return (
-    <div className='nft-card'>
+
+    <figure className='nft-card backdrop-blur'>
         <div className='nft-card-image'>
             <img className='image' src={img} alt="nft image" />
         </div>
-        <div className="nft-card-title">
+        <figcaption className='nft-caption'>
+            <div className="nft-card-title">
             {title}
-        </div>
-        <div className='nft-card-owner'>
-            Owned by <span className='owner'>{owner}</span>
-        </div>
-        <div className="nft-card-info">
-            <p>
-                {info}
-            </p>
-        </div>
-    </div>
+            </div>
+
+            <div className='nft-card-owner'>
+                Created by <span className='owner'>{owner}</span>
+            </div>
+        </figcaption>
+    </figure>
   )
 }
