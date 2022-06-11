@@ -8,7 +8,7 @@ ReactDOM.render(
   <NFTProvider>
     <React.StrictMode>
       <App />
-    </React.StrictMode>,
+    </React.StrictMode>
   </NFTProvider>,
   document.getElementById('root')
 )
