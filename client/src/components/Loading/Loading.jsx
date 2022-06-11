@@ -7,7 +7,7 @@ export const Loading = () => {
     <div className="load-wrapp">
     <div className="load-10">
       <div class="bar"></div>
-      <p>Loading</p>
+      <p className='loading-prompt'>Loading</p>
     </div>
   </div>
   )
