@@ -1,8 +1,22 @@
-import {React,useContext} from 'react'
+import {React,useContext, useState} from 'react'
 import nftImage from '../../../assets/ai.png'
 import './gallery.css'
 import { NFT } from '../NFT/NFT'
 import { NFTContext } from '../../Context/NFTContext'
+import { HiChevronLeft, HiChevronRight , HiOutlineDotsHorizontal} from 'react-icons/hi';
+import { arrayify } from 'ethers/lib/utils'
+
+
+const GalleryItem = ({nftImage}) =>{
+    return(
+        <div className='gallery-item'>
+            <div className='img-container'>
+                <img className='gallery-item-img' src={nftImage} alt='nft'/>
+            </div>
+        </div>
+    );
+}
+
 
 export const Gallery = () => {
     const NFT_Example = {
@@ -12,19 +26,40 @@ export const Gallery = () => {
     };
 
     const {transactions} = useContext(NFTContext);
+    const [currentIndex, setCurrentIndex] = useState(0);
+    console.log(transactions);
+    let i = transactions[0]
   return (
-    <section className='gallery'>
-        <h1 className="heading" >Gallery</h1>
-        <div className='nft-tokens'>
-        {[...Array(10)].map((x, i) =>
-            <NFT className="nft-card" key={i} img={nftImage} title={NFT_Example.title} owner={NFT_Example.owner} info={NFT_Example.info}/>
+    <section id = 'gallery' className='app__container gallery'>
+        <h3 className="heading" >Gallery</h3>
+
+        {(transactions == undefined || transactions.length < 1) ? 
+        (
+            <div>
+                <p>Loading</p>
+            </div>
+        ) : 
+        
+        (
+            <div className='gallery-layout'>
+                {transactions.map((transaction, index) => {
+                    return(
+                        
+                        <GalleryItem  nftImage={`https:/ipfs.io/ipfs/${transaction.image}`} key={index}/>
+
+                        // <NFT
+                        //     key={index}
+                        //     img={`https:/ipfs.io/ipfs/${transaction.image}`} 
+                        //     title={transaction.name} 
+                        //     owner={transaction.owner} 
+                        // info={transaction.message}/>
+                        
+                    )
+                })}
+            </div>
         )}
-        {transactions.map((token, i) =>{
-            //const img = 
-            console.log("consumable", token);
-            return <NFT className="nft-card" key={i} img={`https://ipfs.io/ipfs/${token.image}`} title={token.name} owner={token.owner} info={token.message}/>
-        })}
-        </div>
+
+
     </section>
   )
 }

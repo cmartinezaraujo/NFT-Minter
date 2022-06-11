@@ -17,7 +17,7 @@ export const Nav = () => {
     <nav className='navbar '>
         <img className='logo' src={logo} alt="logo" />
         <ul className='nav-links'>
-            {["Gallery", "Information", "Project"].map((name, index) => (
+            {["gallery", "about", "create"].map((name, index) => (
                 <NavItem key={index} name={name} link="#" />
             ))}
         </ul>
@@ -30,7 +30,7 @@ export const Nav = () => {
                     <div className='mobile-menu backdrop-blur-menu'>
                         <HiX className='nav-close-icon' onClick={() => setToggle(false)}/>
                         <ul className='mobile-list'>
-                            {['home', 'about', 'projects', 'skills', 'contact'].map((item) => (
+                            {['gallery', 'about', 'create'].map((item) => (
                                 <li className='mobile-item app__flex-center p-text' key={`${item}`}>
                                     <a className='mobile-anchor' href={`#${item}`} onClick={() => setToggle(false)}>{item}</a>
                                 </li>

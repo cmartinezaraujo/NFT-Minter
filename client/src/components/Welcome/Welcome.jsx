@@ -20,8 +20,8 @@ export const Welcome = () => {
                 <p className='welcome-intro-sub'>Discover and create unique NFT's</p>
             </div>
             <div className='welcome-intro-buttons'>
-                <button className='welcome-btn'>Explore</button>
-                <button className='welcome-btn'>Create</button>
+                <a href="#gallery"><button className='welcome-btn'>Explore</button></a>
+                <a href="#create"><button className='welcome-btn'>Create</button></a>
             </div>
         </div>
 

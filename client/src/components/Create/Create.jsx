@@ -28,7 +28,7 @@ export const Create = () => {
 
     //funtion to check character limit in string
   return (
-    <section className='create app__container'>
+    <section id="create" className='create app__container'>
 
       <div className='NFT-container'>
         <NFT 
