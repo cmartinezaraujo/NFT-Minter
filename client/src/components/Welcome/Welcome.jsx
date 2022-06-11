@@ -25,7 +25,7 @@ export const Welcome = () => {
             </div>
         </div>
 
-        <div class="welcome-nft">
+        <div className="welcome-nft">
             <NFT img={nftImage} title={NFT_Example.title} owner={NFT_Example.owner} info={NFT_Example.info}/>
         </div>
 
