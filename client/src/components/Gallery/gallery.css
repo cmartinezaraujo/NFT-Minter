@@ -1,19 +1,73 @@
 .gallery{
     display: flex;
     flex-flow: column nowrap;
-    align-items: center ;
-    padding: 10%;
-    background: rgb(35, 35, 35);
+    align-items: center;
+    justify-content: flex-start;
+    padding: .5rem;
+    /* background: linear-gradient(0deg, rgba(155, 127, 197, 0.75) 0%, rgba(255,255,255,0) 100%), url('../../../assets/md-bg.png'); */
+    /* background: url('../../../assets/Orbs.svg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: repeat; */
+
+    
+    background: var(--primary-color);
 }
 
 .heading{
-    color: white;
-    font-size: 3em;
+    font-size: 3rem;
+    font-weight: 600;
+    color: var(--secondary-color);
+    margin-bottom: .5rem;
 }
 
-.nft-tokens{
+.nft-token{
+    display: flex;
+    justify-content: center;
+}
+
+
+.slide{
+    display: flex;
+    justify-content: center;
+}
+
+.gallery-layout{
     display: flex;
     flex-flow: row wrap;
+}
+
+.nft-card-gallery{
+    transform: scale(.8);
+}
+
+
+/*-------- Gallery Item------- */
+.gallery-item{
+    width: 175px;
+    height: 300px;
+    padding: .5rem;
+
+}
+
+
+.img-container{
+    display: flex;
     justify-content: center;
-    gap: 10%;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    border-radius: 15px;
+    border: 1px solid rgb(143, 143, 143);
+    /* small box shadow */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+}
+
+.gallery-item-img{
+    height: 100%;
+    object-fit: cover;
+}
+
+.gallery-item-icon{
+    z-index: 2;
 }

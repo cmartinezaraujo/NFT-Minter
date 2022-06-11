@@ -108,6 +108,7 @@ input::placeholder{
 .connect-prompt>p{
     font-size: 1.25rem;
     margin-top: 1rem;
+    text-align: left;
 }
 
 @supports ((-webkit-backdrop-filter: none) or (backdrop-filter: none)) {
@@ -124,5 +125,20 @@ input::placeholder{
 
     .input-field{
         color: white;
+    }
+}
+
+@media screen and (min-width: 768px){
+    .connect-prompt{
+        font-size: 1.75rem;
+        text-align: center;
+    } 
+
+    .connect-prompt>p{
+        font-size: 1.5rem;
+    }
+
+    .button-send{
+        font-size: 1.25rem;
     }
 }

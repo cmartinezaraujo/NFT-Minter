@@ -36,3 +36,21 @@
     line-height: 1.75rem;
 }
 
+@media screen and (min-width : 768px) {
+    .directions-heading{
+        font-size: 2rem;
+    }
+    .main-heading-sub{
+        font-size: 2rem;
+    }
+
+    .direction-title{
+        margin-bottom: 1.5rem; 
+    }
+    
+    .direction-text{
+        font-size: 1.25rem;
+        line-height: 2rem;
+    }
+    
+}
