@@ -8,16 +8,16 @@ import { Create } from './components/Create/Create'
 
 function App() {
   return (
-    <div className="App">
+    <div className="app">
         <Nav />
         <Welcome />
-      <div className="blue-bg2">
+      <div>
         <Directions />
       </div>
       <div >
         <Create />
       </div>
-      <div className="blue-bg2">
+      <div>
         <Gallery />
       </div>
     </div>

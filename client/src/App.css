@@ -1,10 +1,19 @@
-.App{
-    background: rgba(4, 12, 24, 1);
+.app{
+    background: var(--primary-color);
 }
 
-body {
-  background: #040C18;
+.app__container {
+  width: 100%;
+  min-height: 100vh;
 }
+
+.app__whitebg {
+  background-color: var(--white-color);
+}
+
+/* body {
+  background: #040C18;
+} */
 
 
 .gradient__bg {
