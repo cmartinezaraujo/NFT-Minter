@@ -5,10 +5,15 @@
 }
 
 .create{
-    background: rgb(243,243,243);
+    /* background-color: rgba(140, 147, 228,1);  */
+    /* background-image: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%); */
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     grid-gap: 20px;
+    background: linear-gradient(0deg, rgba(255,255,255,.75) 0%, rgba(255,255,255,0) 100%), url('../../../assets/soft-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: repeat;
 }
 
 .NFT-container{
@@ -16,6 +21,7 @@
     flex-flow: column nowrap;
     justify-content: center;
     align-items: center;
+    padding: 1.5rem;
 }
 
 .form-container{
@@ -23,6 +29,7 @@
     flex-flow: column nowrap;
     justify-content: center;
     align-items: center;
+    padding: 1.5rem;
 }
 
 .create-form{
@@ -41,15 +48,81 @@
     border-bottom:1px solid #eee;
     box-shadow:0 0 15px 4px rgba(0,0,0,0.06);
     border-radius:10px;
+    color: var(--secondary-color);
 }
 
-.input-brows{
+.input-browse{
     width: 100%;
     padding: 10px;
     margin:10px 0;
     border: 0;
     border-bottom:1px solid #eee;
+    background-color: white;
     box-shadow:0 0 15px 4px rgba(0,0,0,0.06);
     border-radius:10px;
 }
 
+input::placeholder{
+    color: var(--secondary-color);
+    font-weight: 500;
+}
+
+.input-browse::file-selector-button{
+    background: var(--accent);
+    border: none;
+    border-radius: 10px;
+    padding: .4rem;
+    box-shadow:0 0 15px 4px rgba(0,0,0,0.1);
+    color: white;
+}
+
+.input-browse::file-selector-button:hover{
+    box-shadow:0 0 15px 4px rgba(0,0,0,0.3);
+}
+
+.button-send{
+    background: white;
+    border: none;
+    border-radius: 10px;
+    padding: 1rem;
+    box-shadow:0 0 15px 4px rgba(0,0,0,0.1);
+    color: var(--secondary-color);
+    margin-top: 1rem;
+    font-weight: 500;
+}
+
+.button-send:hover{
+    box-shadow:0 0 15px 4px rgba(0,0,0,0.3);
+}
+
+.connect-prompt{
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center; 
+    padding: 1rem;
+    font-size: 1.5rem;
+    color: var(--secondary-color);
+}
+
+.connect-prompt>p{
+    font-size: 1.25rem;
+    margin-top: 1rem;
+}
+
+@supports ((-webkit-backdrop-filter: none) or (backdrop-filter: none)) {
+    .backdrop-blur {
+        background-color: rgba(0, 0, 0, .25);
+        -webkit-backdrop-filter: blur(4px);
+        backdrop-filter: blur(4px);
+    }
+
+    input::placeholder{
+        color: white;
+        font-weight: 500;
+    }
+
+    .input-field{
+        color: white;
+    }
+}
