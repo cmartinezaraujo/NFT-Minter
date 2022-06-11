@@ -36,7 +36,7 @@ const Direction = ({ title, text }) =>{
 
 export const Directions = () => {
   return (
-      <section className='directions app__whitebg'>
+      <section className='directions app__whitebg app__container'>
         <div className="directions-heading">
             <h1 className="main-heading gradient_text">Mint your NFT's here and showcase your work in the gallery.</h1>
              <p className='main-heading-sub'>The process is fast and simple!</p>
