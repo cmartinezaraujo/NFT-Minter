@@ -54,3 +54,59 @@
     }
     
 }
+
+@media screen and (min-width : 1024px) {
+    .directions{
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        grid-gap: 20px;
+    }
+
+    .main-heading{
+        font-size: 4rem;
+    }
+
+    .directions-heading{
+       display: flex;
+       flex-direction: column;
+       justify-content: center;
+    }
+
+    .direction-item-container{
+       display: flex;
+       flex-direction: column;
+       justify-content: center;
+    }
+
+    .direction-title{
+        font-size: 1.25rem;
+    }
+
+    .direction-text{
+        font-size: 1.25rem;
+        line-height: 2rem;
+    }
+}
+
+@media screen and (min-width: 2000px){
+    .directions-heading{
+        padding: 6rem;
+    }
+
+    .main-heading{
+        font-size: 8rem;
+    }
+
+    .main-heading-sub{
+        font-size: 4rem;
+    }
+
+    .direction-title{
+        font-size: 5rem;
+    }
+
+    .direction-text{
+        font-size: 4rem;
+        line-height: 6rem;
+    }
+} 
