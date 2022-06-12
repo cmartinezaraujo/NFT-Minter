@@ -1,10 +1,6 @@
 import {React,useContext, useState} from 'react'
-import nftImage from '../../../assets/ai.png'
 import './gallery.css'
-import { NFT } from '../NFT/NFT'
 import { NFTContext } from '../../Context/NFTContext'
-import { HiChevronLeft, HiChevronRight , HiOutlineDotsHorizontal} from 'react-icons/hi';
-import { arrayify } from 'ethers/lib/utils'
 
 
 const GalleryItem = ({nftImage}) =>{
@@ -26,9 +22,7 @@ export const Gallery = () => {
     };
 
     const {transactions} = useContext(NFTContext);
-    const [currentIndex, setCurrentIndex] = useState(0);
-    console.log(transactions);
-    let i = transactions[0]
+    
   return (
     <section id = 'gallery' className='app__container gallery'>
         <h3 className="heading" >Gallery</h3>
@@ -45,15 +39,7 @@ export const Gallery = () => {
                 {transactions.map((transaction, index) => {
                     return(
                         
-                        <GalleryItem  nftImage={`https:/ipfs.io/ipfs/${transaction.image}`} key={index}/>
-
-                        // <NFT
-                        //     key={index}
-                        //     img={`https:/ipfs.io/ipfs/${transaction.image}`} 
-                        //     title={transaction.name} 
-                        //     owner={transaction.owner} 
-                        // info={transaction.message}/>
-                        
+                        <GalleryItem  nftImage={`https://nft-minted-img.s3.us-west-2.amazonaws.com/${transaction.image}`} key={index}/>                        
                     )
                 })}
             </div>

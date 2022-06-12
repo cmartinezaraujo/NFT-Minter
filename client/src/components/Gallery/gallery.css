@@ -4,13 +4,6 @@
     align-items: center;
     justify-content: flex-start;
     padding: .5rem;
-    /* background: linear-gradient(0deg, rgba(155, 127, 197, 0.75) 0%, rgba(255,255,255,0) 100%), url('../../../assets/md-bg.png'); */
-    /* background: url('../../../assets/Orbs.svg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: repeat; */
-
-    
     background: var(--primary-color);
 }
 
@@ -59,7 +52,6 @@
     overflow: hidden;
     border-radius: 15px;
     border: 1px solid rgb(143, 143, 143);
-    /* small box shadow */
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
 }
 
@@ -71,3 +63,27 @@
 .gallery-item-icon{
     z-index: 2;
 }
+
+@media screen and (min-width : 1024px){
+    .gallery-item{
+        width: 250px;
+        height: 350px;
+    }
+
+    .heading{
+        font-size: 3.5rem;
+        font-weight: 700;
+    }
+}
+
+@media screen and (min-width: 2000px){
+    .gallery-item{
+        width: 500px;
+        height: 700px;
+    }
+
+    .heading{
+        font-size: 8rem;
+        font-weight: 700;
+    }
+} 
