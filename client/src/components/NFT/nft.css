@@ -6,7 +6,6 @@
     width: 300px;
     height: 400px;
     background-color: var(--primary-color);
-    /* border: 2px solid rgba(241, 241, 241, 0.8); */
     box-shadow: 0px 20px 40px rgba(0, 0, 0, 0.2);
     border-radius: 35px;
     overflow: hidden;
@@ -59,8 +58,6 @@ img{
 .nft-card-info{
     font-weight: 600;
     font-size: 16px;
-    /* padding-left: 5%;
-    padding-right: 5%; */
     padding: 5%;
 }
 
@@ -75,3 +72,59 @@ img{
         color: white;
     }
 }
+
+@media screen and (min-width: 1024px){
+    .nft-card{
+        width: 400px;
+        height: 500px;
+    }
+
+    .nft-card-image{
+        height: 400px;
+    }
+    
+    img{
+        width: 400px;
+        height: 400px;
+        object-fit: cover;
+    }
+
+    .nft-card-title{
+        font-size: 2rem;
+    }
+    
+    .nft-card-owner{
+        font-size: 1.25rem;
+    }
+}
+
+@media screen and (min-width: 2000px){
+    .nft-card{
+        width: 800px;
+        height: 900px;
+    }
+
+    .nft-card-image{
+        height: 700px;
+    }
+    
+    img{
+        width: 800px;
+        height: 700px;
+        object-fit: cover;
+    }
+
+    .nft-caption{
+        margin-top: 2rem;
+    }
+
+    .nft-card-title{
+        font-size: 3rem;
+    }
+    
+    .nft-card-owner{
+        font-size: 2rem;
+    }
+} 
+    
+
