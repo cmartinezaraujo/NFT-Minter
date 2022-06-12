@@ -3,14 +3,10 @@ import './create.css'
 import { NFTContext } from '../../Context/NFTContext'
 import { NFT } from '../NFT/NFT'
 import {Loading} from '../Loading/Loading'
-import gradient from '../../../assets/gradient.jpg'
 
 export const Create = () => {
 
   const {connectWallet, currentAccount, handleChange, sendTransaction, formData, isLoading} = useContext(NFTContext);
-  
-  // console.log(currentAccount);
-  
 
     const handleSubmit = (e) => {
         const {address, ammount, name, owner, message, file} = formData;
@@ -26,7 +22,6 @@ export const Create = () => {
         console.log(files[0]);
     }
 
-    //funtion to check character limit in string
   return (
     <section id="create" className='create app__container'>
 
@@ -59,10 +54,10 @@ export const Create = () => {
       <div className='form-container'>
         <form className='create-form'>
             <input className='input-field backdrop-blur' placeholder='Address' name="address" type="text" onChange={(e) => handleChange(e, 'address')}/>
-            <input className='input-field backdrop-blur' placeholder='Amount (ETH)' name="ammount" type="number" onChange={(e) => handleChange(e, 'ammount')}/>
+            <input className='input-field backdrop-blur' placeholder='Amount (ETH) Minimum .1' name="ammount" type="number" onChange={(e) => handleChange(e, 'ammount')}/>
             <input className='input-field backdrop-blur' placeholder='NFT name' name="name" type="text" onChange={(e) => handleChange(e, 'name')}/>
-            <input className='input-field backdrop-blur' placeholder='Owner' name="owner" type="text" onChange={(e) => handleChange(e, 'owner')}/>
-            <input className='input-field backdrop-blur' placeholder='Message' name="message" type="text" onChange={(e) => handleChange(e, 'message')}/>
+            <input className='input-field backdrop-blur' placeholder='Creator' name="owner" type="text" onChange={(e) => handleChange(e, 'owner')}/>
+            <input className='input-field backdrop-blur' placeholder='Description' name="message" type="text" onChange={(e) => handleChange(e, 'message')}/>
             <input className='input-browse backdrop-blur' type="file" name='file' onChange={(e) => handleChange(e, 'file')}/>
           
 
