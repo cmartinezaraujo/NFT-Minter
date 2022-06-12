@@ -18,7 +18,7 @@ export const Nav = () => {
         <img className='logo' src={logo} alt="logo" />
         <ul className='nav-links'>
             {["gallery", "about", "create"].map((name, index) => (
-                <NavItem key={index} name={name} link="#" />
+                <NavItem key={index} name={name} link={`#${name}`} />
             ))}
         </ul>
 

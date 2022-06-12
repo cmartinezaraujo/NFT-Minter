@@ -17,6 +17,27 @@
     width: 40px;
 }
 
+.nav-links{
+    width: 100%;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.nav-item{
+    color: var(--accent);
+    list-style: none;
+    cursor: pointer;
+}
+
+.nav-item>a{
+    text-decoration: none;
+    color: var(--secondary-color);
+    text-transform: capitalize;
+    font-size: 1.2rem;
+}
+
 
 
 .app__navbar-menu{
@@ -122,3 +143,7 @@
     }
 
 }
+
+@media screen and (min-width: 2000px){
+
+} 
