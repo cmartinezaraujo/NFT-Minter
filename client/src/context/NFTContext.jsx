@@ -16,16 +16,6 @@ const getEthereumContract = () => {
     return cmGalleryContract;
 }
 
-const getDefaultProvider = () => {
-    const provider = new ethers.getDefaultProvider('ropsten', {
-        alchemy : alchemyToken
-    });
-    const cmGalleryContract = new ethers.Contract(contractAddress, contractABI, provider);
-
-    return cmGalleryContract;
-}
-
-
 export const NFTProvider = ({children}) => {
     const [hasMetaMask, setHasMetaMask] = useState(false);
     const [currentAccount,  setCurrentAccount] = useState('');
@@ -43,18 +33,21 @@ export const NFTProvider = ({children}) => {
 
     const getAllNfts = async () => {
         try {
-            const galleryContract = getDefaultProvider();
-            const nftCount = await galleryContract.totalSupply();
-
-            setTransactionCount(parseInt(nftCount));
-            window.localStorage.setItem('transactionCount', parseInt(nftCount));
-
-            const nfts = [];
-
-            for(let i = 0; i < transactionCount; i++) {
-                const token = await galleryContract.tokenURI(i);
-                nfts.push(token);
-            }
+            
+            let nfts = [];
+            let count = 0;
+            
+            const res = await axios.get('https://juiwtoxgm0.execute-api.us-west-2.amazonaws.com/Get-All-Nfts')
+            .then(function (response) {
+                nfts = response.data.uris;
+                count = response.data.count;
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+            
+            setTransactionCount(parseInt(count));
+            window.localStorage.setItem('transactionCount', parseInt(count));
 
             const nftData = [];
             for(let i = 0; i < transactionCount; i++) {
