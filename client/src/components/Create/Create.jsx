@@ -1,8 +1,9 @@
-import {React, useState, useContext} from 'react'
+import {React, useContext} from 'react'
 import './create.css'
-import { NFTContext } from '../../Context/NFTContext'
+import { NFTContext } from '../../context/NFTContext'
 import { NFT } from '../NFT/NFT'
 import {Loading} from '../Loading/Loading'
+import defaultNFT from '../../../assets/isometric-nft.jpg';
 
 export const Create = () => {
 
@@ -30,7 +31,7 @@ export const Create = () => {
           owner = {formData.owner} 
           info={formData.message}  
           img ={
-            (formData.file != '') ? URL.createObjectURL(formData.file) : '../../../assets/isometric-nft.jpg'
+            (formData.file != '') ? URL.createObjectURL(formData.file) : defaultNFT
           } 
           title={formData.name}/>
       </div>
