@@ -1,7 +1,6 @@
 import React, {useContext, useState, useEffect} from "react";
 import {ethers} from "ethers";
 import { contractABI, contractAddress } from "../utils/constants";
-import {alchemyToken} from "../utils/keys"
 import axios from 'axios';
 
 export const NFTContext = React.createContext();
