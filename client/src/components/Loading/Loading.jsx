@@ -1,6 +1,6 @@
 import {React, useContext} from 'react'
 import "./loading.css"
-import { NFTContext } from '../../Context/NFTContext'
+import { NFTContext } from '../../context/NFTContext'
 
 
 export const Loading = () => {
