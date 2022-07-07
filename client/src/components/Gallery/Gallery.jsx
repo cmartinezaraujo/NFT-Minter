@@ -1,6 +1,6 @@
 import {React,useContext, useState} from 'react'
 import './gallery.css'
-import { NFTContext } from '../../Context/NFTContext'
+import { NFTContext } from '../../context/NFTContext'
 
 
 const GalleryItem = ({nftImage}) =>{
@@ -12,6 +12,7 @@ const GalleryItem = ({nftImage}) =>{
         </div>
     );
 }
+
 
 
 export const Gallery = () => {

@@ -2,7 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import './index.css'
 import App from './App'
-import {NFTProvider} from './Context/NFTContext'
+import {NFTProvider} from './context/NFTContext'
 
 ReactDOM.render(
   <NFTProvider>
