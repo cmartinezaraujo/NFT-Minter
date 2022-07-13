@@ -7,7 +7,7 @@ import defaultNFT from '../../../assets/isometric-nft.jpg';
 
 export const Create = () => {
 
-  const {connectWallet, currentAccount, handleChange, sendTransaction, formData, isLoading} = useContext(NFTContext);
+  const {connectWallet, currentAccount, handleChange, sendTransaction, formData, isLoading, hasMetaMask} = useContext(NFTContext);
 
     const handleSubmit = (e) => {
         const {address, ammount, name, owner, message, file} = formData;
@@ -44,11 +44,16 @@ export const Create = () => {
             your NFT you will be prompted by MetaMask to approave the transaction.
             A minimum of .1 ETH is required to mint your NFT.
           </p>
-          <button 
-              type='button' 
-              className='button-send'
-              onClick={connectWallet}
-              >Connect Wallet</button>
+          {!hasMetaMask && (
+            <div className='app__prompt'>
+              <p>MetaMask has not been detected on your browser. Please <a href="https://metamask.io" target="_blank" rel="noopener noreferrer">Download</a> MetaMask and before trying to connect your wallet.</p>
+            </div>
+          )}
+            <button 
+                type='button' 
+                className='button-send'
+                onClick={connectWallet}
+                >Connect Wallet</button>
         </div>
       )
       :(

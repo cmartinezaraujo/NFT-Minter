@@ -17,3 +17,9 @@
   background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+
+.app__prompt{
+  font-size: 1rem;
+  text-align: left;
+  padding-top: 1rem;
+}
