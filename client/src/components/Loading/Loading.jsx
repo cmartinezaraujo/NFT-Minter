@@ -4,7 +4,7 @@ import { NFTContext } from '../../context/NFTContext'
 
 
 export const Loading = () => {
-  const {connectWallet, currentAccount, handleChange, sendTransaction, formData, isLoading, status} = useContext(NFTContext);
+  const {status} = useContext(NFTContext);
   return (
     <div className="load-wrapp">
     <div className="load-10">
