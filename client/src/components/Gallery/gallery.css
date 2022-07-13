@@ -28,6 +28,7 @@
 .gallery-layout{
     display: flex;
     flex-flow: row wrap;
+    justify-content: center;
 }
 
 .nft-card-gallery{
