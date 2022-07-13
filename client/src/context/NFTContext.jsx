@@ -1,4 +1,4 @@
-import React, {useContext, useState, useEffect} from "react";
+import React, {useState, useEffect} from "react";
 import {ethers} from "ethers";
 import { contractABI, contractAddress } from "../utils/constants";
 import axios from 'axios';
@@ -114,7 +114,7 @@ export const NFTProvider = ({children}) => {
             setHasMetaMask(true);
     
             const accounts = await ethereum.request({method: 'eth_requestAccounts'});
-            
+
             if(accounts.length){
                 setCurrentAccount(accounts[0]);
 
@@ -187,13 +187,15 @@ export const NFTProvider = ({children}) => {
         try{
             if(!ethereum) return alert('Please install MetaMask');
 
-            const {address, ammount, name, owner, message, file} = formData;
+            const {ammount, name, owner, message, file} = formData;
 
 
             const galleryContract = getEthereumContract();
 
         setStatus("Uploading image...");
             const tokenCID = await uploadNftData(formData);
+        
+        if(tokenCID === "error") return alert("Error uploading NFT data.");
 
         setStatus("Minting NFT...");
             const parsedAmount = ethers.utils.parseEther(ammount);
@@ -207,13 +209,12 @@ export const NFTProvider = ({children}) => {
 
            const nftCount = await galleryContract.totalSupply();
            setTransactionCount(parseInt(nftCount));
-           setIsLoading(false);
 
            addNewTransaction(tokenCID);
         } catch(error){
             setIsLoading(false);
             console.log(error);
-            throw new Error("Transaction failed");
+            return alert("Transaction failed.");
         }
     }
 
