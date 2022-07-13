@@ -94,19 +94,19 @@
     }
 
     .main-heading{
-        font-size: 8rem;
+        font-size: 6rem;
     }
 
     .main-heading-sub{
-        font-size: 4rem;
+        font-size: 3rem;
     }
 
     .direction-title{
-        font-size: 5rem;
+        font-size: 4rem;
     }
 
     .direction-text{
-        font-size: 4rem;
+        font-size: 3rem;
         line-height: 6rem;
     }
 } 
