@@ -46,7 +46,8 @@ export const Create = () => {
           </p>
           {!hasMetaMask && (
             <div className='app__prompt'>
-              <p>MetaMask has not been detected on your browser. Please <a href="https://metamask.io" target="_blank" rel="noopener noreferrer">Download</a> MetaMask and before trying to connect your wallet.</p>
+              <p>MetaMask has not been detected on your browser. Please <a href="https://metamask.io" target="_blank" rel="noopener noreferrer">Download</a> MetaMask and before trying to connect your wallet. 
+              You may need to reload your window after the MetaMask is installed.</p>
             </div>
           )}
             <button 
@@ -59,7 +60,7 @@ export const Create = () => {
       :(
       <div className='form-container'>
         <form className='create-form'>
-            <input className='input-field backdrop-blur' placeholder='Address' name="address" type="text" onChange={(e) => handleChange(e, 'address')}/>
+            <p className='form-account'>MetaMask Address: {currentAccount.slice(0, 5)}...{currentAccount.slice(currentAccount.length - 4)}</p>
             <input className='input-field backdrop-blur' placeholder='Amount (ETH) Minimum .1' name="ammount" type="number" onChange={(e) => handleChange(e, 'ammount')}/>
             <input className='input-field backdrop-blur' placeholder='NFT name' name="name" type="text" onChange={(e) => handleChange(e, 'name')}/>
             <input className='input-field backdrop-blur' placeholder='Creator' name="owner" type="text" onChange={(e) => handleChange(e, 'owner')}/>
