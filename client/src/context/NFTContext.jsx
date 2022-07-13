@@ -113,8 +113,8 @@ export const NFTProvider = ({children}) => {
 
             setHasMetaMask(true);
     
-            const accounts = await ethereum.request({method: 'eth_accounts'});
-    
+            const accounts = await ethereum.request({method: 'eth_requestAccounts'});
+            
             if(accounts.length){
                 setCurrentAccount(accounts[0]);
 
