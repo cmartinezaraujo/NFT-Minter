@@ -10,18 +10,14 @@ export const Create = () => {
   const {connectWallet, currentAccount, handleChange, sendTransaction, formData, isLoading, hasMetaMask} = useContext(NFTContext);
 
     const handleSubmit = (e) => {
-        const {address, ammount, name, owner, message, file} = formData;
+        const {ammount, name, owner, message, file} = formData;
         e.preventDefault();
     
-        if(!address || !ammount|| !name || !owner || !message || !file) return;
+        if(!ammount|| !name || !owner || !message || !file) return;
     
          sendTransaction();
     
       }
-    
-    const grabImage = (files) => {
-        console.log(files[0]);
-    }
 
   return (
     <section id="create" className='create app__container'>
